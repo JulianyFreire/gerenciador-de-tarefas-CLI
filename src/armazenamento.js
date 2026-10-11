@@ -12,7 +12,7 @@ function caminhoDoArquivo(){
 }
 
 function iniciar(){
-    return {proximoID: 1, tarefas: []};
+    return {proximoId: 1, tarefas: []};
 }
 
 function carregar(){
@@ -25,7 +25,7 @@ function carregar(){
     try{
         const estado = JSON.parse(fs.readFileSync(caminho, 'utf-8'));
 
-        if(!Array.isArray(estado.tarefas) || !Number.isInteger(estado.proximoID)){
+        if(!Array.isArray(estado.tarefas) || !Number.isInteger(estado.proximoId)){
             throw new Error('Formato Inválido')
         }
         return estado;
