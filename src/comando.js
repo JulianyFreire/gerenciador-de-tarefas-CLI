@@ -59,7 +59,7 @@ function buscarId(estado, id){
     const tarefa = estado.tarefas.find((t) => t.id === id);
 
     if (!tarefa){
-        throw new ErroDeUsabilidade(`Tarefa #${id} não encontrado. Use (listar) para ver os ids.`);
+        throw new ErroDeUsabilidade(`Tarefa #${id} não encontrada. Use (listar) para ver os ids.`);
     }
     return tarefa;
 };
@@ -69,11 +69,11 @@ function concluirTarefa(estado, textoId){
     const tarefa = buscarId(estado, id);
 
     if(tarefa.status === 'concluida'){
-        return {estado, mensagem: `Tarefa #${id} já está concluida.`};
+        return {estado, mensagem: `Tarefa #${id} já está concluída.`};
     }
 
     const tarefas = estado.tarefas.map((t) => (t.id === id ? {...t, status: 'concluida'} : t));
-    return { estado: {...estado, tarefas}, mensagem: `Tarefa #${id} concluida.`};
+    return { estado: {...estado, tarefas}, mensagem: `Tarefa #${id} concluída.`};
 };
 
 function removerTarefa(estado, textoId){
