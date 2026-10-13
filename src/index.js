@@ -5,6 +5,7 @@
 const {carregar, salvar} = require('./armazenamento');
 const comandos = require('./comando');
 const {ErroDeUsabilidade} = require('./erro');
+const {painelAjuda} = require('./ajuda');
 
 const FILTROS = {'--pendentes' : 'pendente', '--concluidas' : 'concluida'};
 
@@ -30,15 +31,21 @@ const TABELA = {
 function main(argumentos){
     const [nome, ...args] = argumentos;
 
-    const iniciar = TABELA[nome];
-    if(!iniciar){
+    if(nome === undefined || ['ajuda', '--ajuda'].includes(nome)){
+        console.log(painelAjuda());
+        return 0;
+    };
+
+    const executar = TABELA[nome];
+    if(!executar){
         console.error(`Comando inválido "${nome}".`);
+        console.error(`Use "ajuda" para lista de comandos`)
         return 1;
     };
 
     try{
         const estado = carregar();
-        const resultado = iniciar(estado, args);
+        const resultado = executar(estado, args);
         
         if(resultado.estado !== estado) salvar(resultado.estado);
         console.log(resultado.mensagem);
