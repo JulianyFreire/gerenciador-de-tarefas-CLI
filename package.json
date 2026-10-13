@@ -1,18 +1,13 @@
 {
-  "name": "gerenciador-de-tarefas-CLI",
+  "name": "gerenciador-de-tarefas-cli",
   "version": "1.0.0",
   "description": "Aplicação CLI para gerenciamento de tarefas.",
   "main": "src/index.js",
-  "scripts": {
-    "start": "node src/index.js",
-    "test": "node --test"
-  },
-  "keywords": [
-    "nodejs",
-    "cli",
-    "gerenciador-de-tarefas"
-  ],
-  "author": "",
+  "bin": { "tarefas": "src/index.js" },
+  "scripts": { "start": "node src/index.js", "test": "node --test" },
+  "engines": { "node": ">=20" },
+  "keywords": ["nodejs", "cli", "gerenciador-de-tarefas"],
+  "author": "Juliany Freire",
   "license": "ISC",
   "type": "commonjs"
 }
