@@ -39,7 +39,7 @@ function main(argumentos){
     const executar = TABELA[nome];
     if(!executar){
         console.error(`Comando inválido "${nome}".`);
-        console.error(`Use "ajuda" para ver a lista de comandos`)
+        console.error(`Use "ajuda" ou "help" para ver a lista de comandos`)
         return 1;
     };
 
