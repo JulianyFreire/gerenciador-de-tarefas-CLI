@@ -5,6 +5,6 @@ class ErroDeUsabilidade extends Error{
         super(mensagem);
         this.name = 'ErroDeUsabilidade';
     }
-}
+};
 
 module.exports = {ErroDeUsabilidade}; 
