@@ -3,7 +3,7 @@
 class ErroDeUsabilidade extends Error{
     constructor(mensagem){
         super(mensagem);
-        this.name = 'ErrorDeUsabilidade';
+        this.name = 'ErroDeUsabilidade';
     }
 }
 
