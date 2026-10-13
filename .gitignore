@@ -1,0 +1,29 @@
+# Dependências
+node_modules/
+
+# Dados locais do usuário
+data/
+
+# Privacidade e variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos temporários
+*.tmp
+
+# Cobertura de testes
+coverage/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configurações de editores
+.vscode/
+.idea/
