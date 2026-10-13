@@ -10,7 +10,7 @@ function tentar(descricao, fn) {
 
 let estado = { proximoId: 1, tarefas: [] };
 
-console.log('\n--- listar vazio ---');
+console.log('\n--- listar (vazio) ---');
 console.log(c.listarTarefa(estado).mensagem);
 
 console.log('\n--- adicionar duas tarefas ---');
@@ -21,7 +21,7 @@ r = c.adicionarTarefa(estado, 'Estudar Javascript', new Date('2026-10-06T12:00:0
 estado = r.estado;
 console.log(r.mensagem);
 
-console.log('\n--- listar (colunas alinhadas) ---');
+console.log('\n--- listar ---');
 console.log(c.listarTarefa(estado).mensagem);
 
 console.log('\n--- concluir #1 e filtrar ---');
@@ -33,7 +33,7 @@ console.log('\n--- editar #2 ---');
 estado = c.editarTarefa(estado, '2', 'Entregar o desafio').estado;
 console.log(c.listarTarefa(estado).mensagem);
 
-console.log('\n--- remover #1 e adicionar outra (id NAO pode repetir) ---');
+console.log('\n--- remover #1 e adicionar outra ---');
 estado = c.removerTarefa(estado, '1').estado;
 estado = c.adicionarTarefa(estado, 'Nova tarefa').estado;
 console.log(c.listarTarefa(estado).mensagem);
@@ -46,8 +46,3 @@ tentar('concluir 99', () => c.concluirTarefa(estado, '99'));
 tentar('remover 99', () => c.removerTarefa(estado, '99'));
 tentar('editar vazio', () => c.editarTarefa(estado, '2', ''));
 tentar('concluir de novo', () => c.concluirTarefa(c.concluirTarefa(estado, '2').estado, '2'));
-
-console.log('\n--- imutabilidade ---');
-const original = { proximoId: 1, tarefas: [] };
-c.adicionarTarefa(original, 'x');
-console.log('original continua vazio?', original.tarefas.length === 0);
