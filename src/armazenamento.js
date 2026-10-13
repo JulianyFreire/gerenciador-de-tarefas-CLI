@@ -9,11 +9,11 @@ const ARQUIVO_PADRAO = path.join(__dirname, '..', 'data', 'listaDeTarefas.json')
 
 function caminhoDoArquivo(){
     return process.env.ARQUIVO_TAREFA || ARQUIVO_PADRAO;
-}
+};
 
 function iniciar(){
     return {proximoId: 1, tarefas: []};
-}
+};
 
 function carregar(){
     const caminho = caminhoDoArquivo();
@@ -31,11 +31,11 @@ function carregar(){
         return estado;
     } catch{
         throw new ErroDeUsabilidade(
-            `O arquivo "${caminho}" NÃO foi possível ler. ` + 
+            `Não foi possível ler o arquivo "${caminho}". ` + 
             'Corrija o arquivo ou apague, para tentar novamente.'
         );
     }
-}
+};
 
 function salvar(estado){
     const caminho = caminhoDoArquivo();
@@ -46,6 +46,6 @@ function salvar(estado){
     
     fs.writeFileSync(temporario, JSON.stringify(estado, null, 2), 'utf-8');
     fs.renameSync(temporario, caminho);
-}
+};
 
 module.exports = {carregar, salvar}; 
