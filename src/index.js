@@ -31,7 +31,7 @@ const TABELA = {
 function main(argumentos){
     const [nome, ...args] = argumentos;
 
-    if(nome === undefined || ['ajuda', '--ajuda', '--help', '-h', 'help'].includes(nome).includes(nome)){
+    if (nome === undefined || ['ajuda', '--ajuda', '--help', '-h', 'help'].includes(nome)) {
         console.log(painelAjuda());
         return 0;
     };
